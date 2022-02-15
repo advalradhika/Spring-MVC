@@ -2,7 +2,8 @@
 <html>
 <body>
 	<h2>Spring MVC - Home Page</h2>
-	console.log("hitting");
+	<hr>
+	<a href="funny/showForm"> Hello World Form</a>
 </body>
 
 </html>

@@ -1,9 +1,14 @@
 package com.udemy.springmvc;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/funny")
 public class HelloWorldController {
 	@RequestMapping("/showForm")
 	public String showForm() {
@@ -12,6 +17,23 @@ public class HelloWorldController {
 
 	@RequestMapping("/processForm")
 	public String processForm() {
+		return "helloworld";
+	}
+
+	@RequestMapping("/processFormVersionTwo")
+	public String letsShout(HttpServletRequest request, Model model) {
+		String theName = request.getParameter("studentName");
+		theName = theName.toUpperCase();
+		String result = "Yo! " + theName;
+		model.addAttribute("message", result);
+		return "helloworld";
+	}
+
+	@RequestMapping("/processFormVersionThree")
+	public String letsShoutAgain(@RequestParam("studentName") String theName, Model model) {
+		theName = theName.toUpperCase();
+		String result = "Yo! " + theName + " using @RequestParam";
+		model.addAttribute("message", result);
 		return "helloworld";
 	}
 }
