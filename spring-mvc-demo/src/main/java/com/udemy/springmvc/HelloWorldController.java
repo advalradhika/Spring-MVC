@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/funny")
 public class HelloWorldController {
+
 	@RequestMapping("/showForm")
 	public String showForm() {
 		return "helloworld-form";
